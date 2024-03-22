@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace Task1
                 .HasMany(u => u.Cart)
                 .WithOne(c => c.User)
                 .HasForeignKey(c => c.UserId);
-            
+
             modelBuilder.Entity<Product>()
                 .HasMany(p => p.Cart)
                 .WithOne(c => c.Product)
@@ -50,7 +51,8 @@ namespace Task1
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseSqlServer("Server=localhost\\SQLEXPRESS;Database=RelationsModelsDb;Trusted_Connection=True;TrustServerCertificate=True;");
+                .UseSqlServer("Server=localhost\\SQLEXPRESS;Database=RelationsModelsDb;Trusted_Connection=True;TrustServerCertificate=True;")
+                .LogTo(e => Debug.WriteLine(e));
         }
     }
 }

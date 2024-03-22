@@ -9,8 +9,8 @@ namespace Task1
     internal class Word
     {
         public Guid Id { get; set; }
-        public string Header { get; set; }
-        public string KeyWords {  get; set; }
+        public string? Header { get; set; }
+        public string KeyWord {  get; set; }
         public List<KeyParams> PrpductLink { get; set; }
     }
 }

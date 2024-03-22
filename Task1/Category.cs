@@ -11,7 +11,7 @@ namespace Task1
     {
         public Guid Id { get; set; }
         public required string Name { get; set; }
-        public string Icon { get; set; }
+        public string? Icon { get; set; }
         public List<Product> Products { get; set; }
     }
 }

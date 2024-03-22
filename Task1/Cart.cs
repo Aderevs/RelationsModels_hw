@@ -10,9 +10,9 @@ namespace Task1
     internal class Cart
     {
         public Guid Id { get; set; }
-        public required User User { get; set; }
+        public User User { get; set; }
         public required Guid UserId { get; set; }
-        public required Product Product { get; set; }
+        public Product Product { get; set; }
         public required Guid ProductId { get; set; }
     }
 }
