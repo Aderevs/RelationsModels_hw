@@ -20,7 +20,7 @@ namespace DAL_V2
 
         public EntityDatabase()
         {
-            Database.EnsureCreated();   
+            Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -30,7 +30,7 @@ namespace DAL_V2
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
+            /*modelBuilder.Entity<User>()
                 .HasMany(u => u.Cart)
                 .WithOne(c => c.User)
                 .HasForeignKey(c => c.UserId);
@@ -38,22 +38,46 @@ namespace DAL_V2
             modelBuilder.Entity<Product>()
                 .HasMany(p => p.Cart)
                 .WithOne(c => c.Product)
+                .HasForeignKey(c => c.ProductId);*/
+
+            modelBuilder.Entity<Cart>()
+                .Ignore(c => c.Id)
+                .HasKey(c => new {c.UserId, c.ProductId });
+            modelBuilder.Entity<Cart>()
+                .HasOne(c => c.Product)
+                .WithMany(p => p.Cart)
                 .HasForeignKey(c => c.ProductId);
+            modelBuilder.Entity<Cart>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.Cart)
+                .HasForeignKey(c => c.UserId);
 
             modelBuilder.Entity<Product>()
                 .HasOne(p => p.Category)
                 .WithMany(c => c.Products)
                 .HasForeignKey(p => p.CategoryId);
 
-            modelBuilder.Entity<Word>()
-                .HasMany(w => w.PrpductLink)
-                .WithOne(kp => kp.KeyWords)
+            modelBuilder.Entity<KeyParams>()
+                .Ignore(kp => kp.Id)
+                .HasKey(kp => new {kp.ProductId, kp.KeyWordsId});
+            modelBuilder.Entity<KeyParams>()
+                .HasOne(kp => kp.Product)
+                .WithMany(p => p.KeyWords)
+                .HasForeignKey(kp => kp.ProductId);
+            modelBuilder.Entity<KeyParams>()
+                .HasOne(kp => kp.KeyWords)
+                .WithMany(w => w.PrpductLink)
                 .HasForeignKey(kp => kp.KeyWordsId);
 
-            modelBuilder.Entity<Product>()
-                .HasMany(p => p.KeyWords)
-                .WithOne(kp => kp.Product)
-                .HasForeignKey(kp => kp.ProductId);
+            /* modelBuilder.Entity<Word>()
+                 .HasMany(w => w.PrpductLink)
+                 .WithOne(kp => kp.KeyWords)
+                 .HasForeignKey(kp => kp.KeyWordsId);
+
+             modelBuilder.Entity<Product>()
+                 .HasMany(p => p.KeyWords)
+                 .WithOne(kp => kp.Product)
+                 .HasForeignKey(kp => kp.ProductId);*/
         }
     }
 }

@@ -122,6 +122,13 @@ namespace WebShop01
             {
                 productIds[i] = Guid.NewGuid();
             }
+            var imgUrlLegion = "https://www.tuexperto.com/wp-content/uploads/2021/01/lenovo-legion-5-pro-08.jpg";
+            var imgUrlTinkPad = "https://m.media-amazon.com/images/I/61d25KoXV+L.jpg";
+            var imgUrlSteamDeck = "https://sometimesiplaygames.com/wp-content/uploads/2022/07/image.png";
+            var imgUrlShears = "https://images-na.ssl-images-amazon.com/images/I/71i4T5A9ZfL._SL1500_.jpg";
+            var imgUrlTrimmer = "https://www.wheeliebinstoragedirect.co.uk/wp-content/uploads/2019/04/hedge-trimmer-cordles.jpg";
+            var imgUrlBleach = "https://th.bing.com/th/id/OIP.Jy9kkZxGIOQo4KJrtOdhBQHaHa?rs=1&pid=ImgDetMain";
+            var imgUrlAllPurposeCleaner = "https://th.bing.com/th/id/OIP.IpCzx7ZLQbjJmL9QEqNpVgHaHa?rs=1&pid=ImgDetMain";
             DAL_V2.Entity.Product[] products =
             {
                     new DAL_V2.Entity.Product
@@ -130,7 +137,8 @@ namespace WebShop01
                         Name = "Laptop Lenovo Legion",
                         Price = 50000,
                         CategoryId = categoryIds[0],
-                        Description = "Powerful laptop that let to enjoy the best AAA-games wherever you are"
+                        Description = "Powerful laptop that let to enjoy the best AAA-games wherever you are",
+                        ImgUrl = imgUrlLegion
                     },
                     new DAL_V2.Entity.Product
                     {
@@ -138,7 +146,8 @@ namespace WebShop01
                         Name = "Laptop ThinkPad carbon",
                         Price = 75000,
                         CategoryId = categoryIds[0],
-                        Description = "Real working station that suits people who value quality and reliability"
+                        Description = "Real working station that suits people who value quality and reliability",
+                        ImgUrl = imgUrlTinkPad
                     },
                     new DAL_V2.Entity.Product
                     {
@@ -146,7 +155,8 @@ namespace WebShop01
                         Name = "Steam Deck",
                         Price = 20000,
                         CategoryId = categoryIds[0],
-                        Description = "Portable game console can run any game on Steam even when traveling on an airplane or in the middle of the forest in a tent"
+                        Description = "Portable game console can run any game on Steam even when traveling on an airplane or in the middle of the forest in a tent",
+                        ImgUrl = imgUrlSteamDeck
                     },
                     new DAL_V2.Entity.Product
                     {
@@ -154,7 +164,8 @@ namespace WebShop01
                         Name = "Garden Shears",
                         Price = 2500,
                         CategoryId = categoryIds[1],
-                        Description = "Professional-grade garden shears for precise cutting and trimming"
+                        Description = "Professional-grade garden shears for precise cutting and trimming",
+                        ImgUrl = imgUrlShears
                     },
                     new DAL_V2.Entity.Product
                     {
@@ -162,7 +173,8 @@ namespace WebShop01
                         Name = "Hedge Trimmer",
                         Price = 15000,
                         CategoryId = categoryIds[1],
-                        Description = "Electric hedge trimmer for effortless shaping and maintenance of hedges"
+                        Description = "Electric hedge trimmer for effortless shaping and maintenance of hedges",
+                        ImgUrl = imgUrlTrimmer
                     },
                     new DAL_V2.Entity.Product
                     {
@@ -170,7 +182,8 @@ namespace WebShop01
                         Name = "Bleach Cleaner",
                         Price = 500,
                         CategoryId = categoryIds[2],
-                        Description = "Powerful bleach cleaner for disinfecting and whitening surfaces"
+                        Description = "Powerful bleach cleaner for disinfecting and whitening surfaces",
+                        ImgUrl = imgUrlBleach
                     },
                     new DAL_V2.Entity.Product
                     {
@@ -178,7 +191,8 @@ namespace WebShop01
                         Name = "All-Purpose Cleaner",
                         Price = 1000,
                         CategoryId = categoryIds[2],
-                        Description = "Versatile all-purpose cleaner for effectively cleaning various surfaces"
+                        Description = "Versatile all-purpose cleaner for effectively cleaning various surfaces",
+                        ImgUrl = imgUrlAllPurposeCleaner
                     }
                 };
 
@@ -220,12 +234,12 @@ namespace WebShop01
                         UserId = userIds[1],
                         ProductId = productIds[5],
                     },
-                    new DAL_V2.Entity.Cart
+                    /*new DAL_V2.Entity.Cart
                     {
                         Id = cartIds[5],
                         UserId = userIds[1],
                         ProductId = productIds[5],
-                    },
+                    },*/
                     new DAL_V2.Entity.Cart
                     {
                         Id = cartIds[6],

@@ -30,7 +30,8 @@ namespace BLL.Services
 
         public async Task<IEnumerable<Product>> AllProducts()
         {
-            throw new NotImplementedException();
+            return await _productRepository.Select();
+            //throw new NotImplementedException();
         }
 
         public async Task<Product> UpdateProduct(Product entity)
